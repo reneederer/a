@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xYkiMesw3V5F5ABn55fmV1VdiBU+nYfnbDy8pOgHK1im9Lcuw0KwvbTrPDwvDJQTLPS1X6tYYHz42Wxim7TQjg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rene\\source\\repos\\Plugins\\PluginLib1\\PluginLib1.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rene\\.nuget\\packages\\fsharp.core\\6.0.0\\fsharp.core.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,9 @@
+C:\Users\rene\source\repos\Plugins\PluginLib1\bin\Debug\net5.0\PluginLib.deps.json
+C:\Users\rene\source\repos\Plugins\PluginLib1\bin\Debug\net5.0\PluginLib.dll
+C:\Users\rene\source\repos\Plugins\PluginLib1\bin\Debug\net5.0\PluginLib.pdb
+C:\Users\rene\source\repos\Plugins\PluginLib1\bin\Debug\net5.0\PluginLib.xml
+C:\Users\rene\source\repos\Plugins\PluginLib1\obj\Debug\net5.0\PluginLib1.AssemblyInfoInputs.cache
+C:\Users\rene\source\repos\Plugins\PluginLib1\obj\Debug\net5.0\PluginLib1.AssemblyInfo.fs
+C:\Users\rene\source\repos\Plugins\PluginLib1\obj\Debug\net5.0\PluginLib.dll
+C:\Users\rene\source\repos\Plugins\PluginLib1\obj\Debug\net5.0\PluginLib.xml
+C:\Users\rene\source\repos\Plugins\PluginLib1\obj\Debug\net5.0\PluginLib.pdb
