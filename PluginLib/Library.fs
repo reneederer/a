@@ -98,7 +98,8 @@ module W =
     let r =
         "select dummy, 3, 4 from dual"
         |> Sql.withConnection sensoAutoupd
-        |> Sql.Assert.containsRow [ Eq "X"; Eq 3; TestF ((fun x -> x = -1 || x > 5), ""); Null; NotNull ]
+        |> Sql.Assert.containsRow
+            [ Eq "X"; Eq 3; TestF ((fun x -> x = -1 || x > 5), ""); Null; NotNull ]
 
 
 
