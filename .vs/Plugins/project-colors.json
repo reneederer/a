@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7c65fdb3-389b-408f-8362-972234572d1f": {
+      "ProjectGuid": "7c65fdb3-389b-408f-8362-972234572d1f",
+      "DisplayName": "Plugins",
+      "ColorIndex": 0
+    },
+    "5350af7d-4ab5-4ccb-9f65-3620c9d85d90": {
+      "ProjectGuid": "5350af7d-4ab5-4ccb-9f65-3620c9d85d90",
+      "DisplayName": "PluginLib",
+      "ColorIndex": 1
+    },
+    "7334eeaf-4eb6-4fe1-ba39-544661ace2c9": {
+      "ProjectGuid": "7334eeaf-4eb6-4fe1-ba39-544661ace2c9",
+      "DisplayName": "PluginLib1",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}

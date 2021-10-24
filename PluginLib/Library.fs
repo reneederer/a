@@ -60,6 +60,8 @@ module Expect =
 
 
 module Sql =
+    let withConnection (connStr : string) (sql : string) =
+        Query (connStr, sql)
     [<RequireQualifiedAccess>]
     module Assert =
         let containsRow (expectedValues : ExpectedRow<IComparable>) (connStr, sql) : Result<IComparable> list list =
@@ -89,15 +91,14 @@ module Sql =
             rows
 
 
-        let sensoAutoupd =  "senso/senso@autoupd"
 
-        let withConnection (connStr : string) (sql : string) =
-            Query (connStr, sql)
 
-        let r =
-            "select dummy, 3, 3 from dual"
-            |> withConnection sensoAutoupd
-            |> containsRow [ Eq "X"; Eq 3; TestF ((fun x -> x = -1 || x > 5), "") ]
+module W =
+    let sensoAutoupd =  "senso/senso@autoupd"
+    let r =
+        "select dummy, 3, 4 from dual"
+        |> Sql.withConnection sensoAutoupd
+        |> Sql.Assert.containsRow [ Eq "X"; Eq 3; TestF ((fun x -> x = -1 || x > 5), ""); Null; NotNull ]
 
 
 
