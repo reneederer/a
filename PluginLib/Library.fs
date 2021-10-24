@@ -3,10 +3,7 @@ open System
 open System.ServiceProcess
 open System.IO
 open Oracle.ManagedDataAccess.Client
-
-module Say =
-    let hello name =
-        sprintf "Hello %s" name
+open Oracle.ManagedDataAccess.Types
 
 [<AutoOpen>]
 module Expect =
@@ -30,6 +27,7 @@ module Expect =
         | Invalid of 'a * string
 
     type DBNull = DBNull
+    type DBNotNull = DBNotNull
 
     type ConnectionString = string
     type Sql = string
@@ -79,7 +77,11 @@ module Sql =
                                 if reader.IsDBNull(i) then
                                     DBNull :> IComparable
                                 else
-                                    (reader.GetOracleValue i) :?> IComparable
+                                    match reader.GetOracleValue i with
+                                    | :? int32 as x -> x
+                                    | :? OracleClob as x -> x.Value
+                                    | :? OracleBlob as x -> DBNotNull
+                                    | x -> x :?> IComparable
                             v
                         ]
                     List.map2 checkExpected expectedValues a
@@ -88,37 +90,15 @@ module Sql =
 
 
         let sensoAutoupd =  "senso/senso@autoupd"
+
         let withConnection (connStr : string) (sql : string) =
             Query (connStr, sql)
 
         let r =
-            let connStr = "senso/senso@autoupd"
-            let sql = "select dummy, 3, 3 from dual"
-            sql
+            "select dummy, 3, 3 from dual"
             |> withConnection sensoAutoupd
             |> containsRow [ Eq "X"; Eq 3; TestF ((fun x -> x = -1 || x > 5), "") ]
 
-        let matchesExactly (expectedValues : ExpectedRow<IComparable>) (connStr, sql) : Result<IComparable> list list =
-            use conn = new OracleConnection(connStr)
-            conn.Open()
-            use command = new OracleCommand(sql, conn)
-            use reader = command.ExecuteReader()
-            if reader.FieldCount <> expectedValues.Length then
-                failwith "xxx"
-            let rows =
-                [ while reader.Read() do
-                    let a =
-                        [ for i in 1 .. reader.FieldCount - 1 do
-                            let v =
-                                if reader.IsDBNull(i) then
-                                    DBNull :> IComparable
-                                else
-                                    (reader.GetOracleValue i) :?> IComparable
-                            v
-                        ]
-                    List.map2 checkExpected expectedValues a
-                ]
-            rows
 
 
 module IO =
