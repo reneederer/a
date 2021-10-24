@@ -7,3 +7,4 @@ C:\Users\rene\source\repos\Plugins\PluginLib1\obj\Debug\net5.0\PluginLib1.Assemb
 C:\Users\rene\source\repos\Plugins\PluginLib1\obj\Debug\net5.0\PluginLib.dll
 C:\Users\rene\source\repos\Plugins\PluginLib1\obj\Debug\net5.0\PluginLib.xml
 C:\Users\rene\source\repos\Plugins\PluginLib1\obj\Debug\net5.0\PluginLib.pdb
+C:\Users\rene\source\repos\Plugins\PluginLib1\obj\Debug\net5.0\PluginLib1.fsproj.AssemblyReference.cache

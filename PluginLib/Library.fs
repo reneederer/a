@@ -7,7 +7,7 @@ open Oracle.ManagedDataAccess.Types
 
 [<AutoOpen>]
 module Expect =
-    type ExpectedValue<'a when 'a : comparison> =
+    type ExpectedValue<'a when 'a :> IComparable> =
         | Eq of 'a
         | Between of 'a * 'a
         | Lt of 'a
@@ -19,8 +19,6 @@ module Expect =
         | Null
         | NotNull
         | TestF of ('a -> bool) * string
-
-    type ExpectedRow<'a when 'a : comparison> = ExpectedValue<'a> list
 
     type Result<'a> =
         | Valid of 'a
@@ -64,7 +62,7 @@ module Sql =
         Query (connStr, sql)
     [<RequireQualifiedAccess>]
     module Assert =
-        let containsRow (expectedValues : ExpectedRow<IComparable>) (connStr, sql) : Result<IComparable> list list =
+        let containsRow (expectedValues : ExpectedValue<IComparable> list) (connStr, sql) : Result<IComparable> list list =
             use conn = new OracleConnection(connStr)
             conn.Open()
             use command = new OracleCommand(sql, conn)
